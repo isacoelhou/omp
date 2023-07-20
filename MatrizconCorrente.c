@@ -77,13 +77,13 @@ int main() {
             A[i][j] = rand() %10 + 1;
             B[i][j] = rand() %10 + 1;
     }}
-    printMatriz(A, L, C);
-    printMatriz(B, L, C);
+  //  printMatriz(A, L, C);
+   // printMatriz(B, L, C);
 
     dif(A, B, R, R2, L, C);
 
-    printf("Resultado:\n");
-    printMatriz(R, L, C);
+    //printf("Resultado:\n");
+    //printMatriz(R, L, C);
     
 
     clock_t end = clock();
