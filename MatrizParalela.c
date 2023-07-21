@@ -6,6 +6,7 @@
 void QuadradoandDiferenca(double **A, double **B, double **R, int L, int C, int threads) 
 {
     int i, j;
+    double resultado_soma_dif = 0.0;
 
     omp_set_num_threads(threads);
 
@@ -32,6 +33,14 @@ void QuadradoandDiferenca(double **A, double **B, double **R, int L, int C, int 
         R[i][j] = A[i][j] - B[i][j];
         }
     }
+
+    for (i = 0; i < L; i++) {
+        for (j = 0; j < C; j++) {
+            resultado_soma_dif += R[i][j];
+        }
+    }
+
+    //printf("A soma das diferenças é %.1lf\n", resultado_soma_dif);
 }
 
 void printMatriz(double **matriz, int L, int C)
@@ -60,9 +69,8 @@ int main() {
     double **A, **B, **R;
     int i, j;
 
-    int numThreads = 8;
     start_time = omp_get_wtime();
-    omp_set_num_threads(numThreads);
+    //omp_set_num_threads(threads);
 
     A = (double **)malloc(L * sizeof(double *)); 
     for (i = 0; i < L; i++) 
